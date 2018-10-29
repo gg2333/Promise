@@ -1,4 +1,4 @@
-package com.master.exo;
+package com.master.exo290;
 
 import android.content.Context;
 import android.content.Intent;
@@ -106,9 +106,9 @@ public class PlayerActivity extends AppCompatActivity {
         super.onStart();
         if (VersionCodes.g23()) {
             initializePlayer();
-//            if (mPlayerView != null) {
-//                mPlayerView.onResume();
-//            }
+            if (mPlayerView != null) {
+                mPlayerView.onResume();
+            }
         }
     }
 
@@ -117,9 +117,9 @@ public class PlayerActivity extends AppCompatActivity {
         super.onResume();
         if (VersionCodes.le23() || mExoPlayer == null) {
             initializePlayer();
-//            if (mPlayerView != null) {
-//                mPlayerView.onResume();
-//            }
+            if (mPlayerView != null) {
+                mPlayerView.onResume();
+            }
         }
     }
 
@@ -127,9 +127,9 @@ public class PlayerActivity extends AppCompatActivity {
     public void onPause() {
         super.onPause();
         if (VersionCodes.le23()) {
-//            if (mPlayerView != null) {
-//                mPlayerView.onPause();
-//            }
+            if (mPlayerView != null) {
+                mPlayerView.onPause();
+            }
             releasePlayer();
         }
     }
@@ -138,9 +138,9 @@ public class PlayerActivity extends AppCompatActivity {
     public void onStop() {
         super.onStop();
         if (VersionCodes.g23()) {
-//            if (mPlayerView != null) {
-//                mPlayerView.onResume();
-//            }
+            if (mPlayerView != null) {
+                mPlayerView.onResume();
+            }
             releasePlayer();
         }
     }
@@ -203,7 +203,7 @@ public class PlayerActivity extends AppCompatActivity {
         return false;
     }
 
-    private class PlayerEventListener extends Player.DefaultEventListener {
+    private class PlayerEventListener implements Player.EventListener {
 
         @Override
         public void onPositionDiscontinuity(int reason) {
