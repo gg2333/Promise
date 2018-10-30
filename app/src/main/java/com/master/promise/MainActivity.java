@@ -2,12 +2,13 @@ package com.master.promise;
 
 import android.os.Bundle;
 import android.view.View;
-
-import com.master.exo290.PlayerActivity;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
+
+    private TextView mTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,9 +19,11 @@ public class MainActivity extends AppCompatActivity {
         playView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PlayerActivity.start(view.getContext());
+                mTextView.setSelected(true);
             }
         });
+
+        mTextView = findViewById(R.id.text_view);
 
     }
 }
